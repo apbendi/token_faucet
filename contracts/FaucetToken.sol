@@ -9,4 +9,8 @@ contract FaucetToken is ERC20 {
     uint public INITIAL_SUPPLY = 0;
 
     constructor() public { }
+
+    function getMeSome() public {
+      _mint(msg.sender, 1000);
+    }
 }
