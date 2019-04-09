@@ -16,7 +16,10 @@ export default ({ accounts }) => (
           method="totalSupply"
           methodArgs={[{ from: accounts[0] }]} />
         {" "}
-        <ContractData contract="FaucetToken" method="symbol" hideIndicator />
+        <ContractData
+          contract="FaucetToken"
+          method="symbol"
+          hideIndicator />
       </p>
       <p>
         <strong>My Balance: </strong>
@@ -26,18 +29,28 @@ export default ({ accounts }) => (
           methodArgs={[accounts[0]]} />
       </p>
       <p>
-        <strong>Request FAT</strong><br />
-        <small>(maximum of <ContractData contract="FaucetToken" method="faucetMax" />)</small><br /><br />
-        <ContractForm contract="FaucetToken" method="getMeSome" labels={["Amount"]} />
+        <strong>
+          Request {" "}
+            <ContractData
+              contract="FaucetToken"
+              method="symbol"
+              hideIndicator />
+        </strong>
+        <br />
+        <small>(maximum of <ContractData contract="FaucetToken" method="faucetMax" />)</small>
       </p>
+      <ContractForm
+        contract="FaucetToken"
+        method="getMeSome"
+        labels={["Amount"]} />
       <p>
-        <h3>Send Tokens</h3>
-        <ContractForm
-          contract="FaucetToken"
-          method="transfer"
-          labels={["To Address", "Amount to Send"]}
-        />
+        <strong>Send Tokens</strong>
       </p>
+      <ContractForm
+        contract="FaucetToken"
+        method="transfer"
+        labels={["To Address", "Amount to Send"]}
+      />
     </div>
   </div>
 );
