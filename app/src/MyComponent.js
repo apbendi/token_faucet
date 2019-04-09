@@ -27,7 +27,7 @@ export default ({ accounts }) => (
       </p>
       <p>
         <strong>Request FAT</strong><br />
-        <small>(maximum of <ContractData contract="FaucetToken" method="faucet_max" />)</small><br /><br />
+        <small>(maximum of <ContractData contract="FaucetToken" method="faucetMax" />)</small><br /><br />
         <ContractForm contract="FaucetToken" method="getMeSome" labels={["Amount"]} />
       </p>
       <p>

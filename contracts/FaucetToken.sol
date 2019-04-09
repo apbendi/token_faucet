@@ -8,25 +8,25 @@ contract FaucetToken is ERC20 {
     uint public decimals = 2;
     uint public INITIAL_SUPPLY = 0;
     
-    uint256 public faucet_max;
-    address boss;
+    uint256 public faucetMax;
+    address public boss;
 
     constructor() public {
       boss = msg.sender;
-      faucet_max = 1000;
+      faucetMax = 1000;
     }
 
     function getMeSome(uint256 value) public {
-      require(value <= faucet_max, "");
+      require(value <= faucetMax, "");
       _mint(msg.sender, value);
     }
 
-    function changeMax(uint256 new_max) public onlyBoss() {
-      faucet_max = new_max;
+    function changeMax(uint256 newMax) public onlyBoss() {
+      faucetMax = newMax;
     }
 
-    function changeBoss(address new_boss) public onlyBoss() {
-      boss = new_boss;
+    function changeBoss(address newBoss) public onlyBoss() {
+      boss = newBoss;
     }
     
     modifier onlyBoss() {
