@@ -51,6 +51,8 @@ export default ({ accounts }) => (
         method="transfer"
         labels={["To Address", "Amount to Send"]}
       />
+      <h2><ContractData contract="FaucetNFT" method="name" /></h2>
+      <ContractData contract="FaucetNFT" method="symbol" />
     </div>
   </div>
 );

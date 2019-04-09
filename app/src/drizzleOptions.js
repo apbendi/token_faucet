@@ -1,4 +1,5 @@
 import FaucetToken from "./contracts/FaucetToken.json";
+import FaucetNFT from "./contracts/FaucetNFT.json";
 
 const options = {
   web3: {
@@ -8,9 +9,8 @@ const options = {
       url: "ws://127.0.0.1:9545",
     },
   },
-  contracts: [FaucetToken],
+  contracts: [FaucetToken, FaucetNFT],
   events: {
-    SimpleStorage: ["StorageSet"],
   },
   polls: {
     accounts: 1500,
