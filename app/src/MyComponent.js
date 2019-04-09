@@ -26,8 +26,9 @@ export default ({ accounts }) => (
           methodArgs={[accounts[0]]} />
       </p>
       <p>
-        <strong>Request 1,000 FAT:</strong>
-        <ContractForm contract="FaucetToken" method="getMeSome" />
+        <strong>Request FAT</strong><br />
+        <small>(maximum of <ContractData contract="FaucetToken" method="faucet_max" />)</small><br /><br />
+        <ContractForm contract="FaucetToken" method="getMeSome" labels={["Amount"]} />
       </p>
       <p>
         <h3>Send Tokens</h3>
