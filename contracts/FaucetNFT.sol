@@ -4,4 +4,12 @@ import "./ERC721Full.sol";
 
 contract FaucetNFT is ERC721Full {  
   constructor() public ERC721Full("FaucetNFT", "FAN") { }
+
+  function gimmeOne() public {
+    _mint(msg.sender, totalSupply());
+  }
+
+  function transferMine(address to, uint256 tokenId) public {
+    safeTransferFrom(msg.sender, to, tokenId);
+  }
 }
