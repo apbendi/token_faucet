@@ -5,20 +5,23 @@ import "./ERC20.sol";
 contract FaucetToken is ERC20 {
     string public name = "FaucetToken";
     string public symbol = "FAT";
-    uint public decimals = 2;
-    uint public INITIAL_SUPPLY = 0;
+    uint public decimals = 18;
     
     uint256 public faucetMax;
     address public boss;
 
-    constructor() public {
+    constructor() public {      
       boss = msg.sender;
-      faucetMax = 1000;
+      faucetMax = 1000 * 10**18; // Initial max of 1,000 FAT per mint request
     }
 
-    function getMeSome(uint256 value) public {
-      require(value <= faucetMax, "");
-      _mint(msg.sender, value);
+    function getMeSome(uint256 requestValue) public {
+      require(requestValue <= faucetMax, "");
+      _mint(msg.sender, requestValue);
+    }
+
+    function burnMine(uint256 burnValue) public {
+      _burn(msg.sender, burnValue);
     }
 
     function changeMax(uint256 newMax) public onlyBoss() {

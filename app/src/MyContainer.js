@@ -6,6 +6,7 @@ const mapStateToProps = state => {
       accounts: state.accounts,
       FaucetToken: state.contracts.FaucetToken,
       drizzleStatus: state.drizzleStatus,
+      web3: state.web3,
   };
 };
 
