@@ -2,3 +2,5 @@ node_modules
 build
 app/src/contracts
 .DS_Store
+testnet-mneumonic.js
+
