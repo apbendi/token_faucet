@@ -9,7 +9,7 @@ contract FaucetToken is ERC20 {
     
     uint256 public faucetMax;
     uint256 public faucetFee;
-    address public boss;
+    address payable public boss;
 
     constructor() public {
       boss = msg.sender;
@@ -35,12 +35,16 @@ contract FaucetToken is ERC20 {
       faucetFee = newFee;
     }
 
-    function changeBoss(address newBoss) public onlyBoss() {
+    function changeBoss(address payable newBoss) public onlyBoss() {
       boss = newBoss;
+    }
+
+    function withdraw() public onlyBoss() {
+      boss.transfer(address(this).balance);
     }
     
     modifier onlyBoss() {
-      require(msg.sender == boss, "Must be the boss");
+      require(msg.sender == boss, "not_boss");
       _;
     }
 }
