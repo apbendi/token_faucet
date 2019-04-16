@@ -8,7 +8,7 @@ contract FaucetNFT is ERC721Full {
   
   constructor() public ERC721Full("FaucetNFT", "FAN") {
     boss = msg.sender;
-    faucetFee = 1 ether;
+    faucetFee = 0 ether;
   }
 
   function gimmeOne() public payable {
@@ -36,6 +36,10 @@ contract FaucetNFT is ERC721Full {
         return _tokensOfOwner(owner);
   }
 
+  function() external payable {
+    require(msg.data.length == 0, "invalid");
+  }
+  
   modifier onlyBoss() {
     require(msg.sender == boss, "not_boss");
     _;

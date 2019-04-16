@@ -42,6 +42,10 @@ contract FaucetToken is ERC20 {
     function withdraw() public onlyBoss() {
       boss.transfer(address(this).balance);
     }
+
+    function() external payable {
+      require(msg.data.length == 0, "invalid");
+    }
     
     modifier onlyBoss() {
       require(msg.sender == boss, "not_boss");
