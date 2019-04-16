@@ -7,13 +7,14 @@ class NFTClaimer extends Component {
         super(props);
 
         this.contract = context.drizzle.contracts.FaucetNFT;
+        this.utils = context.drizzle.web3.utils;
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        this.contract.methods.gimmeOne.cacheSend();
+        this.contract.methods.gimmeOne.cacheSend({value: this.utils.toWei('0', 'ether')});
     }
 
     render() {
