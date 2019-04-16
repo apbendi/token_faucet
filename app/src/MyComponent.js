@@ -9,6 +9,7 @@ import {
 
 import TokenSender from './TokenSender'
 import TokenRequester from "./TokenRequester";
+import NFTClaimer from "./NFTClaimer";
 
 const MyComponent = ({ accounts }, context) => {
   const utils = context.drizzle.web3.utils;
@@ -86,15 +87,10 @@ const MyComponent = ({ accounts }, context) => {
             method="tokensOfOwner"
             methodArgs={[accounts[0]]} />
         </p>
+        <NFTClaimer />
+        <br />
         <div>
-          <strong>Claim A Token</strong>:
-        <ContractForm
-            contract="FaucetNFT"
-            method="gimmeOne" />
-        </div>
-        <br /><br />
-        <div>
-          <strong>Send A Token</strong>:
+          <strong>Send a FAN</strong>:
         <ContractForm
             contract="FaucetNFT"
             method="transferMine" />
