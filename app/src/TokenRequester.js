@@ -55,7 +55,7 @@ class TokenRequester extends Component {
         event.preventDefault();
 
         let amount = this.utils.toWei(this.state.inputAmount);
-        this.contract.methods.getMeSome.cacheSend(amount);
+        this.contract.methods.getMeSome.cacheSend(amount, {value: this.utils.toWei('0.0', 'ether')});
     }
 
     render() {

@@ -8,15 +8,18 @@ contract FaucetToken is ERC20 {
     uint public decimals = 18;
     
     uint256 public faucetMax;
+    uint256 public faucetFee;
     address public boss;
 
-    constructor() public {      
+    constructor() public {
       boss = msg.sender;
+      faucetFee = 0 ether;
       faucetMax = 1000 * 10**18; // Initial max of 1,000 FAT per mint request
     }
 
-    function getMeSome(uint256 requestValue) public {
-      require(requestValue <= faucetMax, "");
+    function getMeSome(uint256 requestValue) public payable {
+      require(msg.value == faucetFee, "no_fee");
+      require(requestValue <= faucetMax, "too_much");
       _mint(msg.sender, requestValue);
     }
 
@@ -26,6 +29,10 @@ contract FaucetToken is ERC20 {
 
     function changeMax(uint256 newMax) public onlyBoss() {
       faucetMax = newMax;
+    }
+
+    function changeFee(uint256 newFee) public onlyBoss() {
+      faucetFee = newFee;
     }
 
     function changeBoss(address newBoss) public onlyBoss() {
