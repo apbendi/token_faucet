@@ -10,6 +10,7 @@ import {
 import TokenSender from './TokenSender'
 import TokenRequester from "./TokenRequester";
 import NFTClaimer from "./NFTClaimer";
+import NFTSender from "./NFTSender";
 
 const MyComponent = ({ accounts }, context) => {
   const utils = context.drizzle.web3.utils;
@@ -75,26 +76,20 @@ const MyComponent = ({ accounts }, context) => {
         </p>
         <p>
           <strong>Unique Tokens Owned by You</strong>:{" "}
-        <ContractData
-            contract="FaucetNFT"
-            method="balanceOf"
-            methodArgs={[accounts[0]]} />
+          <ContractData
+              contract="FaucetNFT"
+              method="balanceOf"
+              methodArgs={[accounts[0]]} />
         </p>
-        <p>
+        <div>
           <strong>Your Tokens by ID</strong>:
           <ContractData
             contract="FaucetNFT"
             method="tokensOfOwner"
             methodArgs={[accounts[0]]} />
-        </p>
-        <NFTClaimer />
-        <br />
-        <div>
-          <strong>Send a FAN</strong>:
-        <ContractForm
-            contract="FaucetNFT"
-            method="transferMine" />
         </div>
+        <NFTClaimer />
+        <NFTSender />
       </div>
     </div>
   );
