@@ -73,10 +73,17 @@ const MyComponent = ({ accounts }, context) => {
           <ContractData contract="FaucetNFT" method="symbol" />
         </p>
         <p>
-          <strong>Unique Tokens Owned by You</strong>:
+          <strong>Unique Tokens Owned by You</strong>:{" "}
         <ContractData
             contract="FaucetNFT"
             method="balanceOf"
+            methodArgs={[accounts[0]]} />
+        </p>
+        <p>
+          <strong>Your Tokens by ID</strong>:
+          <ContractData
+            contract="FaucetNFT"
+            method="tokensOfOwner"
             methodArgs={[accounts[0]]} />
         </p>
         <div>

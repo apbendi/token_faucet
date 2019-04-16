@@ -12,4 +12,8 @@ contract FaucetNFT is ERC721Full {
   function transferMine(address to, uint256 tokenId) public {
     safeTransferFrom(msg.sender, to, tokenId);
   }
+
+  function tokensOfOwner(address owner) public view returns (uint256[] memory) {
+        return _tokensOfOwner(owner);
+  }
 }
