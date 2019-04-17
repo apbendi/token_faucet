@@ -47,22 +47,29 @@ class TokenSender extends Component {
         return (
             <div>
                 <form>
-                    <label>
-                        Amount:
-                        <input type="text" value={this.state.inputSendAmount} onChange={this.handleAmountChange} />
-                    </label>
-                    <label>
-                        Address:
-                        <input type="text" value={this.state.inputAddress} onChange={this.handleAddressChange} />
-                    </label>
-                    <button
-                        key="submit"
-                        className=""
-                        type="button"
-                        onClick={this.handleSubmit}
-                    >
-                        Send Them
-                    </button>
+                    <div>
+                        <input 
+                            type="text" 
+                            className="form-control"
+                            placeholder="Amount"
+                            value={this.state.inputSendAmount} 
+                            onChange={this.handleAmountChange} />
+                    </div>
+                    <br />
+                    <div className="input-group">
+                        <input type="text" 
+                            className="form-control" 
+                            placeholder="Address"
+                            value={this.state.inputAddress}
+                            onChange={this.handleAddressChange} />
+                        <span className="input-group-btn">
+                            <button className="btn btn-danger" 
+                                type="button" 
+                                onClick={this.handleSubmit}>
+                                Send FAT
+                            </button>
+                        </span>
+                    </div>
                 </form>                
             </div>
         )

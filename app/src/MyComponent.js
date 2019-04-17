@@ -68,8 +68,10 @@ const MyComponent = ({ accounts }, context) => {
           </div>
           <div className="col-md-2"></div>
         </div>
+
+
         <div className="row">
-        <div className="col-md-2"></div>
+          <div className="col-md-2"></div>
           <div className="col-md-6">
             <h4>
               Request {" "}
@@ -86,7 +88,6 @@ const MyComponent = ({ accounts }, context) => {
                     />
                   </span></small>
             </h4>
-            
           </div>
         </div>
         <div className="row">
@@ -95,10 +96,21 @@ const MyComponent = ({ accounts }, context) => {
             <TokenRequester />
           </div>
         </div>
-        <p>
-          <strong>Send Tokens</strong>
-        </p>
-        <TokenSender />
+        
+        <br />
+
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <h4>Send Tokens</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <TokenSender />
+          </div>
+        </div>
 
         <div className="page-header">
           <h1>Faucet NFT <small>ERC 721</small></h1>
