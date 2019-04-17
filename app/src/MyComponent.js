@@ -23,9 +23,8 @@ const MyComponent = ({ accounts }, context) => {
   };
 
   return (
-    <div>
-      <div>
-      <div className="page-header">
+    <div className="container">
+      <div className="page-header top-page-header">
         <h1>Faucet Token <small>ERC 20</small></h1>
       </div>
         <div className="row">
@@ -178,7 +177,6 @@ const MyComponent = ({ accounts }, context) => {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
