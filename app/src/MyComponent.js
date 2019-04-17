@@ -25,28 +25,49 @@ const MyComponent = ({ accounts }, context) => {
   return (
     <div>
       <div>
-        <h2>FaucetToken</h2>
-        <p>
-          <strong>Total Supply: </strong>
-          <ContractData
-            contract="FaucetToken"
-            method="totalSupply"
-            methodArgs={[{ from: accounts[0] }]}
-            render={renderTokenAmount} />
-          {" "}
-          <ContractData
-            contract="FaucetToken"
-            method="symbol"
-            hideIndicator />
-        </p>
-        <p>
-          <strong>My Balance: </strong>
-          <ContractData
-            contract="FaucetToken"
-            method="balanceOf"
-            methodArgs={[accounts[0]]}
-            render={renderTokenAmount} />
-        </p>
+      <div className="page-header">
+        <h1>Faucet Token <small>ERC 20</small></h1>
+      </div>
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-4">
+            <div className="panel panel-primary">
+              <div className="panel-heading">
+                <h3 className="panel-title">My Balance</h3>
+              </div>
+              <div className="panel-body">
+                <ContractData
+                  contract="FaucetToken"
+                  method="balanceOf"
+                  methodArgs={[accounts[0]]}
+                  render={renderTokenAmount} />
+                  {" "}
+                <ContractData
+                  contract="FaucetToken"
+                  method="symbol"
+                  hideIndicator />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="panel panel-warning">
+              <div className="panel-heading">Global Supply</div>
+              <div className="panel-body">
+                <ContractData
+                  contract="FaucetToken"
+                  method="totalSupply"
+                  methodArgs={[{ from: accounts[0] }]}
+                  render={renderTokenAmount} />
+                {" "}
+                <ContractData
+                  contract="FaucetToken"
+                  method="symbol"
+                  hideIndicator />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-2"></div>
+        </div>
         <p>
           <strong>
             Request {" "}
@@ -68,7 +89,10 @@ const MyComponent = ({ accounts }, context) => {
           <strong>Send Tokens</strong>
         </p>
         <TokenSender />
-        <h2><ContractData contract="FaucetNFT" method="name" /></h2>
+
+        <div className="page-header">
+          <h1>Faucet NFT <small>ERC 721</small></h1>
+        </div>
         <p>
           <strong>Total Unique Tokens</strong>:{" "}
           <ContractData contract="FaucetNFT" method="totalSupply" />{" "}
