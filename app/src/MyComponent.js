@@ -32,7 +32,10 @@ const MyComponent = ({ accounts }, context) => {
           <div className="col-md-4">
             <div className="panel panel-primary">
               <div className="panel-heading">
-                <h3 className="panel-title">My Balance</h3>
+                <h3 className="panel-title">
+                  <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  {" "}My Balance
+                </h3>
               </div>
               <div className="panel-body">
                 <ContractData
@@ -50,7 +53,10 @@ const MyComponent = ({ accounts }, context) => {
           </div>
           <div className="col-md-4">
             <div className="panel panel-warning">
-              <div className="panel-heading">Global Supply</div>
+              <div className="panel-heading">
+                <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                {" "}Global Supply
+              </div>
               <div className="panel-body">
                 <ContractData
                   contract="FaucetToken"
@@ -75,6 +81,7 @@ const MyComponent = ({ accounts }, context) => {
             <h4>
               Request Tokens{" "}
                 <small><span className="label label-warning">
+                <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>{" "}
                   max of{" "}
                   <ContractData contract="FaucetToken" 
                     method="faucetMax" 
@@ -116,7 +123,10 @@ const MyComponent = ({ accounts }, context) => {
           <div className="col-md-4">
             <div className="panel panel-success">
               <div className="panel-heading">
-                <h3 className="panel-title">My Unique Tokens</h3>
+                <h3 className="panel-title">
+                  <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  {" "}My Unique Tokens
+                </h3>
               </div>
               <div className="panel-body">
                 <ContractData
@@ -133,7 +143,10 @@ const MyComponent = ({ accounts }, context) => {
           </div>
           <div className="col-md-4">
             <div className="panel panel-warning">
-              <div className="panel-heading">Global Unique Tokens</div>
+              <div className="panel-heading">
+              <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                {" "}Global Unique Tokens
+              </div>
               <div className="panel-body">
               <ContractData contract="FaucetNFT" method="totalSupply" />
                 {" "}
@@ -149,7 +162,10 @@ const MyComponent = ({ accounts }, context) => {
             <div className="col-md-8">
               <div className="panel panel-success">
                 <div className="panel-heading">
-                  <h3 className="panel-title">My Tokens by ID</h3>
+                  <h3 className="panel-title">
+                    <span className="glyphicon glyphicon-list" aria-hidden="true"></span>
+                    {" "}My Tokens by ID
+                  </h3>
                 </div>
                 <div className="panel-body">
                   <ContractData

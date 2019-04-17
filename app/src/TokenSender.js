@@ -66,6 +66,8 @@ class TokenSender extends Component {
                             <button className="btn btn-danger" 
                                 type="button" 
                                 onClick={this.handleSubmit}>
+                                <span className="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                                {" "}
                                 Send FAT
                             </button>
                         </span>

@@ -95,6 +95,8 @@ class NFTSender extends Component {
                                 className="btn btn-danger"
                                 type="button"
                                 onClick={this.handleSubmit}>
+                                <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                                {" "}
                                 Send FAN
                             </button>
                         </span>

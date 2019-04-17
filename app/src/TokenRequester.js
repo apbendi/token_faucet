@@ -73,7 +73,8 @@ class TokenRequester extends Component {
                         <button className="btn btn-primary" 
                             type="button" 
                             onClick={this.handleSubmit}>
-                            Get FAT
+                            <span className="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                            {"  "}Get FAT
                         </button>
                     </span>
                 </div>

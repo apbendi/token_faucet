@@ -27,6 +27,8 @@ class NFTClaimer extends Component {
                 type="button"
                 onClick={this.handleSubmit}
                 >
+                    <span className="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                    {" "}
                     Claim a Unique FAN
                 </button>
             </div>
