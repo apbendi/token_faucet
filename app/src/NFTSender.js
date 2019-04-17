@@ -72,29 +72,33 @@ class NFTSender extends Component {
 
         return (
             <div>
-                <p>
-                    <strong>Send a FAN</strong>
-                </p>
+                <h4>Send a FAN</h4>
                 <form>
-                    <label>
-                        Address:
-                        <input type="text" value={this.state.inputAddress} onChange={this.handleAddressChange} />
-                    </label>
-                    <label>
-                        Token ID:
-                        <select defaultValue="none" onChange={this.handleDropDownChange}>
-                            <option hidden disabled value="none"></option>
-                            {tokenOptions}
-                        </select>
-                    </label>
-                    <button
-                        key="submit"
-                        className=""
-                        type="button"
-                        onClick={this.handleSubmit}
-                    >
-                        Send It
-                    </button>
+                    <select 
+                        defaultValue="none"
+                        className="form-control"
+                        onChange={this.handleDropDownChange}>
+                        <option hidden disabled value="none">-- Token ID --</option>
+                        {tokenOptions}
+                    </select>
+                    <br />
+                    <div className="input-group">
+                        <input 
+                            type="text"
+                            className="form-control"
+                            placeholder="Address"
+                            value={this.state.inputAddress} 
+                            onChange={this.handleAddressChange} />
+                        <span className="input-group-btn">
+                            <button
+                                key="submit"
+                                className="btn btn-danger"
+                                type="button"
+                                onClick={this.handleSubmit}>
+                                Send FAN
+                            </button>
+                        </span>
+                    </div>
                 </form>
             </div>
         )

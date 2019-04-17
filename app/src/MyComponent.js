@@ -74,11 +74,7 @@ const MyComponent = ({ accounts }, context) => {
           <div className="col-md-2"></div>
           <div className="col-md-6">
             <h4>
-              Request {" "}
-              <ContractData
-                contract="FaucetToken"
-                method="symbol"
-                hideIndicator />{" "}
+              Request Tokens{" "}
                 <small><span className="label label-warning">
                   max of{" "}
                   <ContractData contract="FaucetToken" 
@@ -172,9 +168,15 @@ const MyComponent = ({ accounts }, context) => {
             <NFTClaimer />
           </div>
         </div>
-        
-        
-        <NFTSender />
+
+        <br />
+                
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <NFTSender />
+          </div>
+        </div>
       </div>
     </div>
   );
