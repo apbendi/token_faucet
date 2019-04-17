@@ -23,8 +23,8 @@ const MyComponent = ({ accounts }, context) => {
   };
 
   return (
-    <div className="App">
-      <div className="section">
+    <div>
+      <div>
         <h2>FaucetToken</h2>
         <p>
           <strong>Total Supply: </strong>
