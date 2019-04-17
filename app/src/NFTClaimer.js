@@ -20,13 +20,14 @@ class NFTClaimer extends Component {
     render() {
         return (
             <div>
+                <h4>Request a FAN</h4> 
                <button
                 key="submit"
-                className=""
+                className="btn btn-success"
                 type="button"
                 onClick={this.handleSubmit}
                 >
-                    Claim a FAN
+                    Claim a Unique FAN
                 </button>
             </div>
         )

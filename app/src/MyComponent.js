@@ -148,15 +148,32 @@ const MyComponent = ({ accounts }, context) => {
           </div>
           <div className="col-md-2"></div>
         </div>
+        
+          <div className="row">
+          <div className="col-md-2"></div>
+            <div className="col-md-8">
+              <div className="panel panel-success">
+                <div className="panel-heading">
+                  <h3 className="panel-title">My Tokens by ID</h3>
+                </div>
+                <div className="panel-body">
+                  <ContractData
+                      contract="FaucetNFT"
+                      method="tokensOfOwner"
+                      methodArgs={[accounts[0]]} />
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <strong>Your Tokens by ID</strong>:
-          <ContractData
-            contract="FaucetNFT"
-            method="tokensOfOwner"
-            methodArgs={[accounts[0]]} />
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <NFTClaimer />
+          </div>
         </div>
-        <NFTClaimer />
+        
+        
         <NFTSender />
       </div>
     </div>
