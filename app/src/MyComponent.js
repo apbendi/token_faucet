@@ -68,23 +68,33 @@ const MyComponent = ({ accounts }, context) => {
           </div>
           <div className="col-md-2"></div>
         </div>
-        <p>
-          <strong>
-            Request {" "}
-            <ContractData
-              contract="FaucetToken"
-              method="symbol"
-              hideIndicator />
-          </strong>
-          <br />
-          <small>(maximum of{" "}
-            <ContractData contract="FaucetToken" 
-              method="faucetMax" 
-              render={renderTokenAmount}
-              />)
-          </small>
-        </p>
-        <TokenRequester />
+        <div className="row">
+        <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <h4>
+              Request {" "}
+              <ContractData
+                contract="FaucetToken"
+                method="symbol"
+                hideIndicator />{" "}
+                <small><span className="label label-warning">
+                  max of{" "}
+                  <ContractData contract="FaucetToken" 
+                    method="faucetMax" 
+                    render={renderTokenAmount}
+                    hideIndicator
+                    />
+                  </span></small>
+            </h4>
+            
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <TokenRequester />
+          </div>
+        </div>
         <p>
           <strong>Send Tokens</strong>
         </p>
@@ -93,18 +103,40 @@ const MyComponent = ({ accounts }, context) => {
         <div className="page-header">
           <h1>Faucet NFT <small>ERC 721</small></h1>
         </div>
-        <p>
-          <strong>Total Unique Tokens</strong>:{" "}
-          <ContractData contract="FaucetNFT" method="totalSupply" />{" "}
-          <ContractData contract="FaucetNFT" method="symbol" />
-        </p>
-        <p>
-          <strong>Unique Tokens Owned by You</strong>:{" "}
-          <ContractData
-              contract="FaucetNFT"
-              method="balanceOf"
-              methodArgs={[accounts[0]]} />
-        </p>
+
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-4">
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title">My Unique Tokens</h3>
+              </div>
+              <div className="panel-body">
+                <ContractData
+                  contract="FaucetNFT"
+                  method="balanceOf"
+                  methodArgs={[accounts[0]]} />
+                {" "}
+                <ContractData
+                  contract="FaucetNFT"
+                  method="symbol"
+                  hideIndicator />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="panel panel-warning">
+              <div className="panel-heading">Global Unique Tokens</div>
+              <div className="panel-body">
+              <ContractData contract="FaucetNFT" method="totalSupply" />
+                {" "}
+                <ContractData contract="FaucetNFT" method="symbol" />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-2"></div>
+        </div>
+
         <div>
           <strong>Your Tokens by ID</strong>:
           <ContractData

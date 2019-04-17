@@ -59,17 +59,24 @@ class TokenRequester extends Component {
     }
 
     render() {
+        let maxPlaceholder = "Max of " +  this.state.maxAmount.display;
+
         return (
             <div>
-                <form>
-                    <label>
-                        Amount: (Max {this.state.maxAmount.display})
-                        <input type="text" value={this.state.inputAmount} onChange={this.handleAmountChange} />
-                    </label>
-                    <button key="submit" type="button" onClick={this.handleSubmit}>
-                        Get FAT
-                    </button>
-                </form>
+                <div className="input-group">
+                    <input type="text" 
+                        className="form-control" 
+                        placeholder={maxPlaceholder} 
+                        value={this.state.inputAmount}
+                        onChange={this.handleAmountChange} />
+                    <span className="input-group-btn">
+                        <button className="btn btn-primary" 
+                            type="button" 
+                            onClick={this.handleSubmit}>
+                            Get FAT
+                        </button>
+                    </span>
+                </div>
             </div>
         );
     }
