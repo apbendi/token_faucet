@@ -12,15 +12,32 @@ import TokenRequester from "./TokenRequester";
 import NFTClaimer from "./NFTClaimer";
 import NFTSender from "./NFTSender";
 
-const MyComponent = ({ accounts }, context) => {
+const MyComponent = (props, context) => {
   const utils = context.drizzle.web3.utils;
 
+  let accounts = props.accounts;
+  let isTokenSynced = props.FaucetToken.synced;
+
   const renderTokenAmount = (rawAmount) => {
+    if (typeof rawAmount !== 'string' && typeof rawAmount !== 'number') {
+      return "";
+    }
+
     // Sort of a hack-- works because our token has the same
     // number of decimals (18) as wei => eth
     // TODO: explore how this func uses BN to get this value w/o poor performance
     return utils.fromWei(rawAmount, 'ether');
   };
+
+  const renderTokenAmountWithPending = (rawAmount) => {
+    let displayAmount = renderTokenAmount(rawAmount);
+
+    if (isTokenSynced) {
+      return displayAmount;
+    } else {
+      return displayAmount + " 🔄";
+    }
+  }
 
   return (
     <div className="container">
@@ -42,7 +59,7 @@ const MyComponent = ({ accounts }, context) => {
                   contract="FaucetToken"
                   method="balanceOf"
                   methodArgs={[accounts[0]]}
-                  render={renderTokenAmount} />
+                  render={renderTokenAmountWithPending} />
                   {" "}
                 <ContractData
                   contract="FaucetToken"
@@ -62,7 +79,7 @@ const MyComponent = ({ accounts }, context) => {
                   contract="FaucetToken"
                   method="totalSupply"
                   methodArgs={[{ from: accounts[0] }]}
-                  render={renderTokenAmount} />
+                  render={renderTokenAmountWithPending} />
                 {" "}
                 <ContractData
                   contract="FaucetToken"
@@ -150,7 +167,7 @@ const MyComponent = ({ accounts }, context) => {
               <div className="panel-body">
               <ContractData contract="FaucetNFT" method="totalSupply" />
                 {" "}
-                <ContractData contract="FaucetNFT" method="symbol" />
+                <ContractData contract="FaucetNFT" method="symbol" hideIndicator />
               </div>
             </div>
           </div>
