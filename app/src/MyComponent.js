@@ -7,12 +7,14 @@ import {
   ContractForm,
 } from "drizzle-react-components";
 
+import NetworkIndicator from './NetworkIndicator'
 import TokenSender from './TokenSender'
 import TokenRequester from "./TokenRequester";
 import NFTClaimer from "./NFTClaimer";
 import NFTSender from "./NFTSender";
 
 const MyComponent = (props, context) => {
+  //console.log(props)
   const utils = context.drizzle.web3.utils;
 
   let accounts = props.accounts;
@@ -41,6 +43,7 @@ const MyComponent = (props, context) => {
 
   return (
     <div className="container">
+      <NetworkIndicator />
       <div className="page-header top-page-header">
         <h1>Faucet Token <small>ERC 20</small></h1>
       </div>
