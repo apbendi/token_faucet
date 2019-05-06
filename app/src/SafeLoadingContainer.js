@@ -38,13 +38,32 @@ class SafeLoadingContainer extends Component {
         if (isInvalidNetwork) {
             return (
                 <div className="container">
-                    Network is not supported
+                    Network Not Supported
                 </div>
             );
         } else if (isWeb3Failure) {
             return (
-                <div className="container">
-                    No Web3 Found
+                <div className="container" style={{margin: '30px'}}>
+                    <div className="row">
+                        <div className="col-md-2"></div>
+                        <div className="jumbotron col-md-8">
+                            <h2>🦊 Web3 Is Required</h2>
+                            <p>
+                                <small>
+                                    This website communicates with the Ethereum network via a protocol known
+                                    as web3. To enable this site in your browser, download a web3 compatible
+                                    browser extension like MetaMask.
+                                </small>
+                            </p>
+                            <p>
+                                <a className="btn btn-primary btn-lg" href="https://metamask.io/" target="blank" role="button">
+                                    Get MetaMask{" "}
+                                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                                </a>
+                            </p>
+                        </div>
+                        <div className="col-md-2"></div>
+                    </div>
                 </div>
             );
         } else if (isLoadingDrizzle) {
