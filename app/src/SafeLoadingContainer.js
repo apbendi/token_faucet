@@ -37,8 +37,34 @@ class SafeLoadingContainer extends Component {
 
         if (isInvalidNetwork) {
             return (
-                <div className="container">
-                    Network Not Supported
+                <div className="container" style={{margin: '30px'}}>
+                    <div className="row">
+                        <div className="col-md-2"></div>
+                        <div className="jumbotron col-md-8">
+                            <h2>
+                                <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>{" "}
+                                Unknown Network 
+                            </h2>
+                            <p>
+                                <small>
+                                    It looks like you're using a network where Faucet Token is not yet deployed.
+                                    Here are the networks where Faucet Token is currently supported.
+                                </small>
+                            </p>
+                            <p>
+                                <div className="panel panel-default">
+                                <div className="panel-heading">Supported Networks</div>
+                                <ul className="list-group">
+                                    <li className="list-group-item">
+                                        <span className="dot" style={{backgroundColor: 'yellowgreen'}}></span>{" "}
+                                        Ropsten
+                                    </li>
+                                </ul>
+                                </div>
+                            </p>
+                        </div>
+                        <div className="col-md-2"></div>
+                    </div>
                 </div>
             );
         } else if (isWeb3Failure) {
