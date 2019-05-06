@@ -14,6 +14,7 @@ class NetworkIndicator extends Component {
     }
 
     this.loadNetworkType = this.loadNetworkType.bind(this)
+    this.dotColor = this.dotColor.bind(this);
   }
 
   componentDidMount() {
@@ -42,12 +43,39 @@ class NetworkIndicator extends Component {
     });
   }
 
+  dotColor() {
+    if (!this.props.drizzleStatus.initialized) {
+      return "yellow";
+    }
+
+    if ("ropsten" === this.state.networkType) {
+      return "greenyellow";
+    }
+
+    if ("private" === this.state.networkType) {
+      return "orange";
+    }
+
+    return "red";
+  }
+
   render() {
     let networkName = this.state.networkType.charAt(0).toUpperCase() + this.state.networkType.slice(1);
 
     return (
-      <div>
-        {networkName}
+      <div className="container">
+        <div className="row" style={{marginTop: '5px'}}>
+          <div className="col-md-10"></div>
+          <div className="col-md-2">
+            <div className="panel panel-default" style={{margin: '0 '}}>
+              <div className="panel-body" style={{padding: '.4em'}}>
+                <center>
+                <span className="dot" style={{backgroundColor: this.dotColor()}}></span> {networkName}
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

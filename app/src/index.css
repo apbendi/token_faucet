@@ -5,3 +5,10 @@ body {
 .top-page-header {
   margin-top: 20px
 }
+
+.dot {
+  height: .8em;
+  width: .8em;
+  border-radius: 50%;
+  display: inline-block;
+}
