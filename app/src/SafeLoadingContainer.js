@@ -69,7 +69,12 @@ class SafeLoadingContainer extends Component {
         } else if (isLoadingDrizzle) {
             return (
                 <div className="container">
-                    Loading...
+                    <center>
+                        <h1>
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>{" "}
+                            Loading...
+                        </h1>
+                    </center>
                 </div>
             );   
         } else {
