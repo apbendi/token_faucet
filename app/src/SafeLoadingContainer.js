@@ -20,9 +20,17 @@ class SafeLoadingContainer extends Component {
         let isInvalidNetwork = isWeb3Ready && 
                                 !this.isValidNetwork(this.props.web3Info.networkId);
 
-        let isWeb3Failure = this.props.web3Info.status === "failed" || (
+        let isWeb3Failure = this.props.web3Info.status === "failed" || 
+                                    // For some reason, web3 reports as initialized in Safari, w/o any
+                                    // MetaMask or web3 installation, but with a networkId property present and
+                                    // set to undefined. This combination of conditions allows us to identify
+                                    // this case in Safari without flashing the 'no web 3' interface while
+                                    // loading on browsers that do have web3
+                                    ( 
                                         this.props.web3Info.status === "initialized" &&
-                                        Object.keys(this.props.accounts).length === 0
+                                        Object.keys(this.props.accounts).length === 0 &&
+                                        this.props.web3Info.hasOwnProperty('networkId') &&
+                                        this.props.web3Info.networkId === undefined
                                     );
 
         let isLoadingDrizzle = !this.props.drizzleStatus.initialized;
