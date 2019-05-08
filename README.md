@@ -1,6 +1,8 @@
 # Token Faucet 🚰
 
-Easily mintable tokens conforming to the [ERC20](https://en.wikipedia.org/wiki/ERC-20) and [ER721](http://erc721.org/) standards. Useful for testing  other smart contracts or applications which interact with these standard tokens. Available at [tokenfaucet.casa](https://tokenfaucet.casa).
+Easily mintable tokens conforming to the [ERC20](https://en.wikipedia.org/wiki/ERC-20) and [ER721](http://erc721.org/) standards. It is useful for testing  other smart contracts or applications which interact with these standard tokens. Deployed for use at [tokenfaucet.casa](https://tokenfaucet.casa).
+
+Built by [@BenDiFrancesco](https://twitter.com/BenDiFrancesco) as side project to my side project.
 
 ## Usage
 
