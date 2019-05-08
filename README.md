@@ -74,3 +74,9 @@ npm start
 Contributions to the frontend are welcome! In particular, the current design uses the vanilla Bootstrap theme, and help improving it would be appreciated. Simply fork the project, create a new branch from master, and open a PR.
 
 The smart contracts are deployed, and therefore considered finalized, unless we decide to upgrade Token Faucet completely in the future.
+
+## License
+
+Token Faucet is made available under the [MIT](LICENSE.txt) license.
+
+Copyright (2019) Ben DiFrancesco.
